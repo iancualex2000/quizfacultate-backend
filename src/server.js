@@ -12,17 +12,17 @@ const mongoose =require("mongoose");
 const QuestionModel = require("./QuestionModel");
 
 
-app.use(express.static("public"))
+// app.use(express.static("public"))
 
 app.use(express.urlencoded({extended: false}));
 app.disable("etag");
 
-// app.use(cors({
-//     origin: 'http://localhost:3000',
-//     credentials: true
-// }));
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true
+}));
 
-// app.use(morgan("dev"));
+app.use(morgan("dev"));
 
 
 
@@ -166,6 +166,6 @@ app.get('/', async (req,res) => {
     res.send("HEllo")
 })
 
-app.listen(process.env.PORT || 8080, () => {
+app.listen(process.env.PORT || 5000, () => {
     console.log(`Server is running on port ${process.env.PORT}`)
 })
